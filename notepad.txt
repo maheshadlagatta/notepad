@@ -1,0 +1,97 @@
+import java.awt.Frame;
+import java.awt.Menu;
+import java.awt.MenuBar;
+import java.awt.MenuItem;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.security.PublicKey;
+
+import javax.swing.JMenuItem;
+
+public class Notepad extends Frame implements ActionListener
+{
+	MenuBar bar;
+	Menu menu1,menu2,menu3,submenu;
+	MenuItem m1,m2,m3,m4,m5,m6,m7,m8,m9,m10,m11;
+	public Notepad()
+	{
+		setVisible(true);
+		setSize(600, 500);
+		setTitle("Avanthi Notepad");
+		addWindowListener(new WindowAdapter()
+		{
+			public void windowClosing(WindowEvent e)
+			{
+				super.windowClosing(e);
+				System.out.println(0);
+			}
+
+			
+		});
+		bar=new MenuBar();
+		setMenuBar(bar);
+		menu1=new Menu("File");
+		menu2=new Menu("Edit");
+		menu3=new Menu("Avanthi Help");
+		submenu=new Menu("Replace");
+		
+		bar.add(menu1);
+		bar.add(menu2);
+		bar.add(menu3);
+		
+		
+		m1=new MenuItem("New");
+		m2=new MenuItem("Open");
+		m3=new MenuItem("Save");
+		m4=new MenuItem("Exit");
+		
+		menu1.add(m1);
+		menu1.add(m2);
+		menu1.add(m3);
+		menu1.add(m4);
+		
+		m5=new MenuItem("Cut");
+		m6=new MenuItem("Copy");
+		m7=new MenuItem("Paste");
+		 
+		menu2.add(m5);
+		menu2.add(m6);
+		menu2.add(m7);
+		menu2.add(submenu);
+	
+		
+		m8=new MenuItem("About Software");
+		menu3.add(m8);
+		
+		
+		m9=new MenuItem("Find");
+		m10=new MenuItem("Find and Replace");
+		m11=new MenuItem("Replace All");
+		
+		submenu.add(m9);
+		submenu.add(m10);
+		submenu.add(m11);
+		m4.addActionListener(this);
+		}
+	
+
+	public static void main(String[] args)
+	{
+		Notepad s=new Notepad();
+
+	}
+
+
+	@Override
+	public void actionPerformed(ActionEvent e)
+	{
+		if(e.getActionCommand().equals("Exit"))
+		{
+			dispose();
+	    }
+	
+
+	} 
+}
